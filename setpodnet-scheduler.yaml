@@ -117,6 +117,6 @@ spec:
       nodeSelector:
         node-role.kubernetes.io/control-plane: ""
       containers:
-      - image: docker.io/maitaba/setpodnet:v1.0
+      - image: registry.gitlab.com/telecom-sudparis/nexslice-latency-scheduler:v1
         name: default-scheduler
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
