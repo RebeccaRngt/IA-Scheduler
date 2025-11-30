@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: latency-metrics
+  namespace: kube-system
+data:
+  metrics.json: |
+    [
+      { "nodeName": "eilsy", "latencyMs": 5 },
+      { "nodeName": "user",  "latencyMs": 50 }
+    ]
