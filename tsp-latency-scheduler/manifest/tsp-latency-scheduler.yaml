@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tsp-latency-scheduler
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: tsp-latency-scheduler
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "pods/binding", "nodes", "namespaces", "events"]
+    verbs: ["get", "list", "watch", "create", "update", "patch"]
+  - apiGroups: [""]
+    resources: ["endpoints", "services", "configmaps"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tsp-latency-scheduler
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: tsp-latency-scheduler
+subjects:
+  - kind: ServiceAccount
+    name: tsp-latency-scheduler
+    namespace: kube-system
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tsp-latency-scheduler
+  namespace: kube-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tsp-latency-scheduler
+  template:
+    metadata:
+      labels:
+        app: tsp-latency-scheduler
+    spec:
+      serviceAccountName: tsp-latency-scheduler
+      containers:
+        - name: tsp-latency-scheduler
+          image: seyli/tsp-latency-scheduler:v1   # <-- ADAPTE AVEC TON DOCKER HUB
+          imagePullPolicy: IfNotPresent
+          args:
+            - "--scheduler-name=tsp-latency-scheduler"
