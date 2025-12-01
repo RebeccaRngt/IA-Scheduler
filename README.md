@@ -1,5 +1,7 @@
 # Scheduler Kubernetes Latency-Aware pour la 5G
 
+Lien : https://github.com/RebeccaRngt/IA-Scheduler
+
 ## Table des matières
 
 1. [Introduction au contexte](#introduction-au-contexte)
