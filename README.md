@@ -605,63 +605,12 @@ Le scheduler a été testé dans un environnement Kubernetes déployant une infr
 
 - **Core 5G** : AMF, SMF, UPF, NRF, NSSF, AUSF, UDM, UDR
 - **RAN** : OAI CU-CP, CU-UP, DU et UERANSIM gNB/UE
-- **Monitoring** : Prometheus et Grafana pour l'observabilité
 
 ### Architecture déployée
 
 ![Architecture 5G Core](fig/5gc.png)
 
 *Figure 1 : Architecture du core 5G déployé dans Kubernetes*
-
-### Network Slicing
-
-Le scheduler prend en compte les différents slices configurés :
-
-![Network Slicing](fig/sst-slicing.png)
-
-*Figure 2 : Répartition des UEs selon les slices (SST 1, 2, 3)*
-
-### Monitoring et observabilité
-
-L'intégration avec Prometheus et Grafana permet de visualiser les métriques de performance :
-
-![Monitoring](fig/monitoring.png)
-
-*Figure 3 : Dashboard Grafana pour le monitoring du cluster*
-
-![Grafana](fig/grafana.png)
-
-*Figure 4 : Visualisation des métriques de performance dans Grafana*
-
-### Tests de charge
-
-#### Déploiement à grande échelle
-
-Le scheduler a été testé avec 100 UEs simultanés :
-
-![100 UEs](fig/100ues.png)
-
-*Figure 5 : Déploiement de 100 UEs simultanés*
-
-![Test 100 UEs](fig/100ues_test.png)
-
-*Figure 6 : Résultats des tests avec 100 UEs*
-
-#### Tests de performance réseau
-
-Les tests iPerf3 permettent de mesurer le débit et la latence :
-
-![iPerf3](fig/iperf3.png)
-
-*Figure 7 : Résultats des tests iPerf3 mesurant le débit entre UEs*
-
-### Auto-scaling
-
-Le scheduler fonctionne en complément de l'auto-scaling Kubernetes (HPA) :
-
-![HPA](fig/hpa.png)
-
-*Figure 8 : Horizontal Pod Autoscaler ajustant le nombre de répliques selon la charge*
 
 ### Comparaison avec le scheduler par défaut
 
@@ -710,9 +659,7 @@ Au cours du développement et des tests, nous avons rencontré plusieurs difficu
 - **Kubernetes client-go** : Bibliothèque officielle pour interagir avec l'API Kubernetes
 - **Docker** : Containerisation du scheduler
 
-**Monitoring :**
-- **Prometheus** : Collecte de métriques
-- **Grafana** : Visualisation des métriques
+**Mesure de latence :**
 - **qperf** : Mesure de latence réseau
 
 **5G :**
