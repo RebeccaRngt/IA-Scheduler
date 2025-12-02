@@ -804,3 +804,12 @@ Ce travail ouvre plusieurs perspectives d'amélioration :
 Ce projet démontre qu'il est possible d'améliorer significativement les performances d'un cluster Kubernetes 5G en intégrant simplement des métriques de latence dans le processus de décision du scheduler, ouvrant la voie à des solutions plus sophistiquées basées sur l'intelligence artificielle.
 
 Dans le cadre de ce projet, nous avons appliqué ces principes en intégrant un scheduler IA heuristique au sein de NexSlice. Le `tsp-latency-scheduler`, déployé dans k3s et appliqué notamment aux instances UPF, permet de contrôler plus finement le placement des fonctions critiques. Les résultats obtenus montrent que cette approche constitue une première étape vers un scheduler réellement latency-aware, en cohérence avec les exigences 3GPP et ETSI. Le prototype développé offre une base réutilisable pour de futurs travaux, notamment l'intégration d'un véritable modèle d'apprentissage ou la prise en charge du multi-cluster.
+
+Au-delà du prototype qu’on a réalisé, ce travail montre clairement que c’est possible de rendre Kubernetes beaucoup plus "malin" en prenant en compte la latence. On pose un peu les bases d’un scheduler qui rapproche automatiquement les fonctions 5G critiques là où ça répond le mieux, et qui pourrait s’adapter tout seul au comportement du réseau. À terme, ce genre d’orchestrateur pourrait devenir une brique clé dans les futurs réseaux autonomes et les plateformes cloud-native. En combinant Kubernetes, la 5G et un peu d’IA dans la logique de décision, on prouve qu’un cluster classique peut évoluer vers quelque chose de vraiment intelligent, capable d’optimiser la qualité de service sans intervention humaine.
+
+[Voir la démo](https://github.com/RebeccaRngt/IA-Scheduler/releases/download/v1.0/nom_de_ta_video.mp4)
+
+## Contributeurs
+- Ilyes Belkhir  
+- Rebecca Ringuet  
+- Rania El Haddaoui  
