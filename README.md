@@ -231,6 +231,14 @@ Pour reproduire l'environnement, suivez les instructions du projet NexSlice pour
 **Référence :** https://github.com/AIDY-F2N/NexSlice/blob/k3s/README.md
 
 ```bash
+
+## Quick Start
+
+1. git clone https://github.com/RebeccaRngt/IA-Scheduler
+2. kubectl apply -f setpodnet-scheduler.yaml
+3. kubectl apply -f 5g_core/...
+4. kubectl logs -n kube-system -l app=tsp-latency-scheduler 
+
 # Installation de k3s (sur chaque nœud)
 curl -sfL https://get.k3s.io | sh -
 
